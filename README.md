@@ -1,14 +1,11 @@
-### My first repository is awesome!
+### The  Board Game Gizmo
+### Some Board Gamer Tools in a Small Box
+### Based on the powerful STM32f103 uController
 
-I'm Ed Castro and here it's my first GitHub repository.
-If you see this file on my project, it's because I'm learning Git.
+<<< WARNING: >>> The project is under HEAVY documentation, but the software is complete and the prototype is fully operational.
 
-My mood:
+I'm Ed Castro and this is my first GitHub repository.
 
-> [MOOD NAME]
 
-My favorite color:
-
-> [COLOR NAME]
 
 Thank you so much for reading! ☺
