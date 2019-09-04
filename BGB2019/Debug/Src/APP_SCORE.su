@@ -1,0 +1,3 @@
+APP_SCORE.c:44:6:SCORE	24	static
+APP_SCORE.c:188:6:updatescore	8	static
+APP_SCORE.c:231:6:SC_REDRAW	24	static
