@@ -4,6 +4,8 @@
 
 <<< WARNING: >>> The project is under HEAVY documentation, but the software is complete and the prototype is fully operational.
 
+Schematics and PCB design here: https://easyeda.com/eduardfc/bgb_hw
+
 I'm Ed Castro and this is my first GitHub repository.
 
 
