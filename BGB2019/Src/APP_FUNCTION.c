@@ -122,7 +122,7 @@ font=alpha_tny;  // only this font for simplicity
 justify=LEFT;
 frground=BLACK; //printing in black as default
 bkground=WHITE;
-LCD_COLORWINDOW (0, 0, 159, 127, BLACK);  //clear screen
+LCD_COLORWINDOW (0, 0, 159, 126, BLACK);  //clear screen
 LCD_COLORWINDOW (0, 0, 159, 125, WHITE);  //white as background
 WAIT_NO_KEY();
 cc=TEXT[PNTR]; //get first char
@@ -286,7 +286,7 @@ char SELECTMENU (const char ITEMS[6][11],unsigned int frg, unsigned int bkg)
 	frground=frg;
 	bkground=bkg;
 
-	LCD_COLORWINDOW (0, 125, 159, 127, BLACK);
+	LCD_COLORWINDOW (0, 125, 159, 126, BLACK);
 	LCD_COLORWINDOW (0, 0, 159, 125, bkground);  //clear screen
 
 	font=alpha_lg;
@@ -598,7 +598,7 @@ do {		// main loop
 					if ((GET_KEY(BIT_KEY_M))==3)  //pressed again
 					{
 					TIMER_DICE = ROLLSPEED;
-					state_DICE= SHAKING_DIE; //return to shake xxx talvez desenhar um 2º dado
+					state_DICE= SHAKING_DIE; //return to shake xxx talvez desenhar um 2ï¿½ dado
 					}
 				}
 
@@ -609,7 +609,7 @@ do {		// main loop
 					if ((GET_KEY(BIT_KEY_M))==3)  //pressed again
 					{
 					TIMER_DICE = ROLLSPEED;
-					state_DICE= SHAKING_DIE; //return to shake xxx talvez desenhar um 2º dado
+					state_DICE= SHAKING_DIE; //return to shake xxx talvez desenhar um 2ï¿½ dado
 					}
 					else
 					{

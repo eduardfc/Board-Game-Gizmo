@@ -66,7 +66,7 @@ void CHECK_BATT(void)
 			SYS_FLAGS |= BIT_BATT; //blink flag as status is critical
 			if (V_BATT > (V_Batt_25 + V_Batt_THR)) {
 				batt_status=1;
-				SYS_FLAGS |= BIT_BATT; //set timer flag as vbat changed
+				// SYS_FLAGS |= BIT_BATT; //set timer flag as vbat changed
 			}
 			break;
 

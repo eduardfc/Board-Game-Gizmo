@@ -352,7 +352,7 @@ void BG_TABLE()  //prepare the table to draw another chip token
 void BG_REDRAW ()
 {
 	unsigned char x,y;
-	LCD_COLORWINDOW (0, 0, 159, 127, BLACK);
+	LCD_COLORWINDOW (0, 0, 159, 126, BLACK);
 	LCD_COLORWINDOW (0, 0, 159, 125, GREY1);
 
 	if (SOFT_FLAGS & US_MODE)  //display is different if US or UK mode
@@ -799,7 +799,7 @@ void ROULETTE (void)
 
 void RL_REDRAW(void)
 {
-	LCD_COLORWINDOW (0, 0, 159, 127, BLACK);
+	LCD_COLORWINDOW (0, 0, 159, 126, BLACK);
 	LCD_LINE(0,0,152,0,GOLD);  //draw base of roulette
 	LCD_COLORWINDOW (0, 1, 152, 34, GREY0);
 	LCD_LINE(0,35,152,35,GOLD);

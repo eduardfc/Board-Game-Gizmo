@@ -602,7 +602,7 @@ void HG_REDRAW(int x, int lvup, int lvdw, int cx)
 void DRAW_HOURGLASS (int x, int LVLUP, int LVDWN, unsigned int SNDCLR)  // draw a hourglass on X
 {
 
-	LCD_COLORWINDOW (0, 0, 159, 127, BLACK);
+	LCD_COLORWINDOW (0, 0, 159, 126, BLACK);
 
 	LCD_LINE(x,3,x,43,GREY2);
 	LCD_LINE(x,43,x+20,63,GREY2);
@@ -640,7 +640,7 @@ void DRAW_HOURGLASS_H ( int LVLUP, int LVDWN, unsigned int SNDCLR)
 // when stopped draw a horizontal hourglass
 {
 
-	LCD_COLORWINDOW (0, 0, 159, 127, BLACK); //xxxx delete
+	LCD_COLORWINDOW (0, 0, 159, 126, BLACK); //xxxx delete
 
 	LCD_LINE(19,39,59,39,GREY2);  // The contorn of the hourglass
 	LCD_LINE(59,39,79,59,GREY2);
@@ -770,7 +770,7 @@ void CHESS (void)
 						case C_DUPDATE:  //if editing delay, will edit bonus
 							state_chrono=C_BUPDATE; //edit BONUS
 
-							LCD_COLORWINDOW (0, 0, 159, 127, BLACK); //clear screen
+							LCD_COLORWINDOW (0, 0, 159, 126, BLACK); //clear screen
 
 							font=alpha_lg;   // write BONUS
 							bkground=BLACK;
@@ -791,7 +791,7 @@ void CHESS (void)
 						case C_SUPDATE:  //if editing seconds, will edit delay
 							state_chrono=C_DUPDATE; //edit delay
 
-							LCD_COLORWINDOW (0, 0, 159, 127, BLACK); //clear screen
+							LCD_COLORWINDOW (0, 0, 159, 126, BLACK); //clear screen
 
 							font=alpha_lg;   // write DELAY
 							bkground=BLACK;
@@ -912,7 +912,7 @@ void CHESS (void)
 								case C_P2DELAY:
 									if (((state_chrono==C_P1RUN) || (state_chrono==C_P1DELAY))&&(!(ANY_KEY(BIT_KEY_P1)))) break; //exit if P2 pressed again
 									if (((state_chrono==C_P2RUN) || (state_chrono==C_P2DELAY))&&(!(ANY_KEY(BIT_KEY_P2)))) break; //exit if P1 pressed again
-									BUZZER (999);
+									//BUZZER (333);
 									turn++; //increment turn number
 									if ((state_chrono==C_P2DELAY) && (CPLAYERS[1].TIME_MAIN > *CPLAYERS[1].SCHRONO)) CPLAYERS[1].TIME_MAIN += 1000 * CPLAYERS[1].BONUS; //add bonus
 									if ((state_chrono==C_P2RUN) && (CPLAYERS[1].TIME_MAIN > *CPLAYERS[1].SCHRONO)) CPLAYERS[1].TIME_MAIN += 1000 * CPLAYERS[1].BONUS; //add bonus
@@ -929,7 +929,7 @@ void CHESS (void)
 										if (i){
 											SOFT_FLAGS &= ~BIT_CHRONO_2_RUN; //P2 must stop
 											justify=LEFT;
-											LCD_COLORWINDOW (0, 15, 55, 127, BLACK); //clear screen side of p1
+											LCD_COLORWINDOW (0, 15, 55, 126, BLACK); //clear screen side of p1
 											LCD_WORD ("DLY",0,60,3);
 
 											state_chrono=C_P1DELAY;
@@ -943,7 +943,7 @@ void CHESS (void)
 										else {
 											SOFT_FLAGS &= ~BIT_CHRONO_1_RUN; //P1 must stop
 											justify=RIGHT;
-											LCD_COLORWINDOW (105, 15, 159, 127, BLACK); //clear screen side of p2
+											LCD_COLORWINDOW (105, 15, 159, 126, BLACK); //clear screen side of p2
 										LCD_WORD ("DLY",110,60,3);
 
 										state_chrono=C_P2DELAY;
@@ -1103,7 +1103,7 @@ void CHESS (void)
 
 												if (--auxdelay == 0)   //reach 0 start main time and buzz
 												{
-													BUZZER (1500);
+													BUZZER (333);
 
 													CHESS_REDRAW(0);
 
@@ -1673,7 +1673,7 @@ void CHESS_REDRAW(char mode) 	//redraw chess clock
 								// mode =1 -> show main time including Added bonus
 								// mode =2 -> show main time (set time)
 {
-	LCD_COLORWINDOW (0, 0, 159, 127, BLACK); //clear screen
+	LCD_COLORWINDOW (0, 0, 159, 126, BLACK); //clear screen
 
 	DRAWFLAG(0,BLACK); //draw flag box
 
@@ -1732,7 +1732,7 @@ void CHESS_REDRAW(char mode) 	//redraw chess clock
 }
 
 void RT_REDRAW (void) {
-	LCD_COLORWINDOW (0, 0, 159, 127, BLACK); //clear screen
+	LCD_COLORWINDOW (0, 0, 159, 126, BLACK); //clear screen
 
 	bkground=BLACK;
 	frground=PINK;
@@ -1760,7 +1760,7 @@ void RT_REDRAW (void) {
 
 void CHR_REDRAW (void) {
 
-	LCD_COLORWINDOW (0, 0, 159, 127, BLACK); //clear screen
+	LCD_COLORWINDOW (0, 0, 159, 126, BLACK); //clear screen
 
 
 	bkground=BLACK;

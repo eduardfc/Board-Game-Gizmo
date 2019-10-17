@@ -202,12 +202,12 @@ void	updatescore ()  //update score according to key and print score and add
 	bkground=BLACK;
 	justify=PLAYERS[eachplayer].JUSTIFY;
 
-	font=nmbrL;   // let´s print added value
+	font=nmbrL;   // letï¿½s print added value
 	if (PLAYERS[eachplayer].ADDING) frground=WHITE;	 // print if <> 0
-	else frground=BLACK; // will not show ADD if =0 but clean field  xxx talvez melhor imprimir. usar não imprimir só quando retornar para IDLE
+	else frground=BLACK; // will not show ADD if =0 but clean field  xxx talvez melhor imprimir. usar nï¿½o imprimir sï¿½ quando retornar para IDLE
 	LCD_NUMBER (PLAYERS[eachplayer].ADDING,PLAYERS[eachplayer].X,YADD,4);
 
-	//let´s print SCORE
+	//letï¿½s print SCORE
 	frground=PLAYERS[eachplayer].COLOR;
 
 	font=nmbrXL;
@@ -231,7 +231,7 @@ void	updatescore ()  //update score according to key and print score and add
 void	SC_REDRAW(void) {	//Clear and redraw score screen
 
 
-LCD_COLORWINDOW (0, 0, 159, 127, BLACK);
+LCD_COLORWINDOW (0, 0, 159, 126, BLACK);
 
 LCD_LINE (0,0,159,0,GREY1);
 LCD_LINE (80,0,80,126,GREY1);
@@ -254,12 +254,12 @@ for (int iredraw = 0;  iredraw < 2; ++ iredraw) {
 	if (iredraw) {x=159;
 	justify=RIGHT;
 	} else {
-		x=0;				// xxx refazer tudo considerando que x,justify estão em PLAYERS[]
+		x=0;				// xxx refazer tudo considerando que x,justify estï¿½o em PLAYERS[]
 		justify=LEFT;
 	}
 	LCD_NUMBER(PLAYERS[iredraw].SCORE,x,y,field);
 
-	font=nmbrL;								//pode ser retirado pois não tem adição apos interrupção
+	font=nmbrL;								//pode ser retirado pois nï¿½o tem adiï¿½ï¿½o apos interrupï¿½ï¿½o
 	y=3;	// 51								//xxxx faltou acertar field
 	frground=WHITE;							//
 	if (PLAYERS[iredraw].ADDING)
