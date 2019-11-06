@@ -5298,7 +5298,7 @@ OUTPUT(BGB2019.elf elf32-littlearm)
  .debug_macro   0x0000000000017354      0x23b Src/sysmem.o
  .debug_macro   0x000000000001758f      0x1b4 Src/system_stm32f1xx.o
 
-.debug_line     0x0000000000000000    0x119cc
+.debug_line     0x0000000000000000    0x119c8
  .debug_line    0x0000000000000000      0x83a Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
  .debug_line    0x000000000000083a      0xb8c Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.o
  .debug_line    0x00000000000013c6      0x913 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
@@ -5324,12 +5324,12 @@ OUTPUT(BGB2019.elf elf32-littlearm)
  .debug_line    0x000000000000da85      0x66a Src/FONT_number_xg.o
  .debug_line    0x000000000000e0ef      0xa36 Src/KEY_BUZZ_BATT.o
  .debug_line    0x000000000000eb25      0x9b3 Src/LCD_ST7735.o
- .debug_line    0x000000000000f4d8      0xa44 Src/main.o
- .debug_line    0x000000000000ff1c      0x713 Src/stm32f1xx_hal_msp.o
- .debug_line    0x000000000001062f      0x738 Src/stm32f1xx_it.o
- .debug_line    0x0000000000010d67      0x559 Src/sysmem.o
- .debug_line    0x00000000000112c0      0x68d Src/system_stm32f1xx.o
- .debug_line    0x000000000001194d       0x7f Startup/startup_stm32f103c8tx.o
+ .debug_line    0x000000000000f4d8      0xa40 Src/main.o
+ .debug_line    0x000000000000ff18      0x713 Src/stm32f1xx_hal_msp.o
+ .debug_line    0x000000000001062b      0x738 Src/stm32f1xx_it.o
+ .debug_line    0x0000000000010d63      0x559 Src/sysmem.o
+ .debug_line    0x00000000000112bc      0x68d Src/system_stm32f1xx.o
+ .debug_line    0x0000000000011949       0x7f Startup/startup_stm32f103c8tx.o
 
 .debug_str      0x0000000000000000    0x78547
  .debug_str     0x0000000000000000    0x6ef30 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o

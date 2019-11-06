@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  16 .debug_macro  00017743  00000000  00000000  00039560  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   000119cc  00000000  00000000  00050ca3  2**0
+ 17 .debug_line   000119c8  00000000  00000000  00050ca3  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    00078547  00000000  00000000  0006266f  2**0
+ 18 .debug_str    00078547  00000000  00000000  0006266b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  000dabb6  2**0
+ 19 .comment      0000007b  00000000  00000000  000dabb2  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  0000453c  00000000  00000000  000dac34  2**2
+ 20 .debug_frame  0000453c  00000000  00000000  000dac30  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -28565,8 +28565,8 @@ void GO_SLEEP(void) {		// if no pending flags, then go sleep and save batt
 	do {
 
 	//	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);  //turn LED off indicating Im sleeping
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);  //lixo (depende da polaridade do led)
- 800b9d0:	2200      	movs	r2, #0
+		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+ 800b9d0:	2201      	movs	r2, #1
  800b9d2:	f44f 5100 	mov.w	r1, #8192	; 0x2000
  800b9d6:	480b      	ldr	r0, [pc, #44]	; (800ba04 <GO_SLEEP+0x38>)
  800b9d8:	f7f5 fd18 	bl	800140c <HAL_GPIO_WritePin>
@@ -28578,23 +28578,22 @@ void GO_SLEEP(void) {		// if no pending flags, then go sleep and save batt
  800b9e4:	f7f5 fd42 	bl	800146c <HAL_PWR_EnterSLEEPMode>
 		HAL_ResumeTick();   //resume systick
  800b9e8:	f7f4 fc42 	bl	8000270 <HAL_ResumeTick>
-	//	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);  //tunr LED on indicating Im awake
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);  //lixo (depende da polaridade do led)
- 800b9ec:	2201      	movs	r2, #1
- 800b9ee:	f44f 5100 	mov.w	r1, #8192	; 0x2000
- 800b9f2:	4804      	ldr	r0, [pc, #16]	; (800ba04 <GO_SLEEP+0x38>)
- 800b9f4:	f7f5 fd0a 	bl	800140c <HAL_GPIO_WritePin>
 		//	if (!TIMER_BATT) {
 	//		TIMER_BATT= BATT_CYCLE;
 	//		// SYS_FLAGS ^= BIT_BATT;
 	//		CHECK_BATT();
 	//	}
 	} while (!SYS_FLAGS);
- 800b9f8:	4b03      	ldr	r3, [pc, #12]	; (800ba08 <GO_SLEEP+0x3c>)
- 800b9fa:	681b      	ldr	r3, [r3, #0]
- 800b9fc:	2b00      	cmp	r3, #0
- 800b9fe:	d0e7      	beq.n	800b9d0 <GO_SLEEP+0x4>
+ 800b9ec:	4b06      	ldr	r3, [pc, #24]	; (800ba08 <GO_SLEEP+0x3c>)
+ 800b9ee:	681b      	ldr	r3, [r3, #0]
+ 800b9f0:	2b00      	cmp	r3, #0
+ 800b9f2:	d0ed      	beq.n	800b9d0 <GO_SLEEP+0x4>
 
+	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);  //tunr LED on indicating Im awake
+ 800b9f4:	2200      	movs	r2, #0
+ 800b9f6:	f44f 5100 	mov.w	r1, #8192	; 0x2000
+ 800b9fa:	4802      	ldr	r0, [pc, #8]	; (800ba04 <GO_SLEEP+0x38>)
+ 800b9fc:	f7f5 fd06 	bl	800140c <HAL_GPIO_WritePin>
 
 
 }

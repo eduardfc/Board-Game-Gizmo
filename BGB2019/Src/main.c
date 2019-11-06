@@ -592,12 +592,11 @@ void GO_SLEEP(void) {		// if no pending flags, then go sleep and save batt
 	do {
 
 	//	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);  //turn LED off indicating Im sleeping
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);  //lixo (depende da polaridade do led)
+		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
 		HAL_SuspendTick();   // turn systick off before sleep
 		HAL_PWR_EnterSLEEPMode( 0, PWR_SLEEPENTRY_WFE);   // go sleep
 		HAL_ResumeTick();   //resume systick
 	//	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);  //tunr LED on indicating Im awake
-		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);  //lixo (depende da polaridade do led)
 		//	if (!TIMER_BATT) {
 	//		TIMER_BATT= BATT_CYCLE;
 	//		// SYS_FLAGS ^= BIT_BATT;
@@ -605,6 +604,7 @@ void GO_SLEEP(void) {		// if no pending flags, then go sleep and save batt
 	//	}
 	} while (!SYS_FLAGS);
 
+	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);  //tunr LED on indicating Im awake
 
 
 }
