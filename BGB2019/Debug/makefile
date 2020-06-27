@@ -32,6 +32,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 BGB2019.list \
 
+OBJCOPY_BIN += \
+BGB2019.bin \
+
 
 # All Target
 all: BGB2019.elf secondary-outputs
@@ -52,12 +55,17 @@ BGB2019.list: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+BGB2019.bin: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "BGB2019.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 .PHONY: all clean dependents
 .SECONDARY:

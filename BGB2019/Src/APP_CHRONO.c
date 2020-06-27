@@ -24,6 +24,7 @@ const char MHORGLASS[6][11]={"MODE", " NORMAL", " CHESS","","",""}; //itens for 
 extern unsigned int SYS_FLAGS;
 extern unsigned int SOFT_FLAGS;
 extern const char *HELP;  //pointer to help text array
+extern unsigned short V_BATT;
 
 unsigned char HOR, MIN, SEC; // HH:MM:SEC (HH= 0~99)
 unsigned char state_chrono;
@@ -1599,6 +1600,9 @@ do {
 			SCHRONO_1=0;
 			}
 		CHR_HHMMSS (SCHRONO_1,0); //Print CHRONO_1 as HHMMSS
+
+		LCD_NUMBER (V_BATT*5,120,80,0);   //* FOR TEST ONLY!!  used to display battery voltage in mV while cronometer is running
+
 		SYS_FLAGS &= ~BIT_CHRONO_1_ALARM;
 		}
 
@@ -1966,7 +1970,7 @@ void CHR_LAPS (void)  //print lap marks
 			LCD_CHAR ('/',22,y);  //print a - separator
 
 			LCD_NUMBER (HOR,54, y,  2);
-			if (HOR<10) LCD_NUMBER(0,45,y,1); //print a 0 if hour < 10
+			if (HOR<10) LCD_NUMBER(0,45,y,1); //print a 0 if hour <  10
 
 			LCD_NUMBER (MIN,78, y,  2);
 			if (MIN<10) LCD_NUMBER(0,69,y,1); //print a 0 if min < 10

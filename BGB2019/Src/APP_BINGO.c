@@ -73,14 +73,13 @@ void BINGO (void)
 	TOKENS[DRAWN_CHIPS]=0; // tokens[DRAWN_CHIPS] is the number of chip tokens OUTside cage
 	TOKENS[TOTAL_CHIPS]=((SOFT_FLAGS & US_MODE) ? USBINGO : UKBINGO); //TOKENKS[TOTAL_CHIPS]= TOTAL NUMBER OF CHIPS
 
-	// xxx incluir rotina para perguntar se UK ou US mode
 	BG_REDRAW();
 	state_BINGO=B_STOP; //initial state
 
 
 	do {
 		GO_SLEEP();	//wait something happens
-		rand(); //improve random generator function
+		rand(); //xxx improve random generator function
 
 		if (SYS_FLAGS & BIT_BATT) DISPLAY_BATT();  //process batt
 

@@ -61,46 +61,57 @@ void CHECK_BATT(void)
 	 HAL_ADC_Start_DMA(&hadc1, (uint32_t*)ADC_RAW, 2);
 	 V_BATT=(BATT_HIST[0]+BATT_HIST[1]+BATT_HIST[2])/3;  //V_BATT -> battery voltage mV
 
+
 	 switch (batt_status) {
-		case 0:
-			SYS_FLAGS |= BIT_BATT; //blink flag as status is critical
-			if (V_BATT > (V_Batt_25 + V_Batt_THR)) {
-				batt_status=1;
-				// SYS_FLAGS |= BIT_BATT; //set timer flag as vbat changed
-			}
-			break;
+	 		case 0:
+	 			//  _
 
-		case 1:
-			if (V_BATT > (V_Batt_50 + V_Batt_THR)) {
-				batt_status=2;
-				SYS_FLAGS |= BIT_BATT; //set timer flag as vbat changed
-			}
-			if (V_BATT < (V_Batt_50 - V_Batt_THR)) {
-				batt_status=0;
-				SYS_FLAGS |= BIT_BATT;
-			}
-			break;
+	 			SYS_FLAGS |= BIT_BATT; //blink flag as status is critical
+	 			if (V_BATT > V_Batt_50) {
+	 				batt_status=1;
+	 				SYS_FLAGS |= BIT_BATT; //set timer flag as vbat changed
+	 			}
+	 			break;
 
-		case 2:
-			if (V_BATT > (V_Batt_75 + V_Batt_THR)) {
-				batt_status=3;
-				SYS_FLAGS |= BIT_BATT;
-			}
-			if (V_BATT < (V_Batt_75 - V_Batt_THR)) {
-				batt_status=1;
-				SYS_FLAGS |= BIT_BATT;
-			}
-			break;
+	 		case 1:
 
-		case 3:
+	 			// -
 
-			if (V_BATT < (V_Batt_100 - V_Batt_THR)) {
-				batt_status=2;
-				SYS_FLAGS |= BIT_BATT;
-			}
-			break;
+	 			if (V_BATT > V_Batt_75) {
+	 				batt_status=2;
+	 				SYS_FLAGS |= BIT_BATT; //set timer flag as vbat changed
+	 			}
+	 			if (V_BATT < V_Batt_25) {
+	 				batt_status=0;
+	 				SYS_FLAGS |= BIT_BATT;
+	 			}
+	 			break;
 
-	}
+	 		case 2:
+
+	 			// --
+
+	 			if (V_BATT > V_Batt_100 ) {
+	 				batt_status=3;
+	 				SYS_FLAGS |= BIT_BATT;
+	 			}
+	 			if (V_BATT < V_Batt_50) {
+	 				batt_status=1;
+	 				SYS_FLAGS |= BIT_BATT;
+	 			}
+	 			break;
+
+	 		case 3:
+
+	 			// - - -
+
+	 			if (V_BATT < V_Batt_75) {
+	 				batt_status=2;
+	 				SYS_FLAGS |= BIT_BATT;
+	 			}
+	 			break;
+
+	 	}
 }
 void START_CHECK_BATT(void)
 //battery routine startup
